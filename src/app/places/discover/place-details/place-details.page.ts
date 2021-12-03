@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Place } from '../../place.model';
 import { PlacesService } from '../../places.service';
 
@@ -12,7 +12,7 @@ export class PlaceDetailsPage implements OnInit {
   currentPlace: Place;
   placeId: string;
 
-  constructor(private placesService: PlacesService, private route: ActivatedRoute) { }
+  constructor(private placesService: PlacesService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe(
@@ -21,6 +21,10 @@ export class PlaceDetailsPage implements OnInit {
       }
     )
     this.currentPlace = this.placesService.getCurrentPlace(this.placeId);
+  }
+
+  onEdit() {
+    this.router.navigate(['places/offers/edit-offer', this.placeId])
   }
 
 }
