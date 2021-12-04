@@ -14,7 +14,7 @@ const routes: Routes = [
       import('./new-offer/new-offer.module').then((m) => m.NewOfferPageModule),
   },
   {
-    path: 'edit-offer',
+    path: 'edit-offer/:placeId',
     loadChildren: () =>
       import('./edit-offer/edit-offer.module').then(
         (m) => m.EditOfferPageModule

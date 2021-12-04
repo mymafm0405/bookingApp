@@ -35,4 +35,8 @@ export class PlacesService {
   getPlaces() {
     return this.places.slice();
   }
+
+  getCurrentPlace(id: string) {
+    return this.places.find(pl => pl.id === id);
+  }
 }

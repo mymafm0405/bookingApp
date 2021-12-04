@@ -1,12 +1,25 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Place Details</ion-title>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
+    <ion-title>{{ currentPlace.title }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-button (click)="onBook()">Book</ion-button>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <ion-img [src]="currentPlace.imageUrl"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button class="ion-margin" (click)="onEdit()" fill="outline"
+          >Edit</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
