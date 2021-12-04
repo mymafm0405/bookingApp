@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-place-details',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./place-details.page.scss'],
 })
 export class PlaceDetailsPage implements OnInit {
+  constructor(private navCtrl: NavController) {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  onBook() {
+    this.navCtrl.navigateBack('/places/discover');
   }
-
 }
