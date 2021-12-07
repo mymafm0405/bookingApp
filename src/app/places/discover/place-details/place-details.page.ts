@@ -4,6 +4,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ActionSheetController, ModalController } from '@ionic/angular';
 import { Place } from '../../place.model';
 import { PlacesService } from '../../places.service';
+import { TestComponent } from 'src/app/bookings/test-comp/test.component';
 
 @Component({
   selector: 'app-place-details',
@@ -77,6 +78,21 @@ export class PlaceDetailsPage implements OnInit {
         console.log(resultData.data, resultData.role);
         if (resultData.role === 'confirm') {
           console.log('Booked');
+          this.modalCtr
+            .create({
+              component: TestComponent,
+            })
+            .then((modalEl) => {
+              modalEl.present();
+              return modalEl.onDidDismiss();
+            })
+            .then((resultData2) => {
+              console.log(resultData2.role);
+              console.log(resultData2.data);
+              if (resultData.role === 'confirm') {
+                console.log(resultData2.data);
+              }
+            });
         }
       });
   }
